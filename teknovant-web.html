@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Teknovant – Seguimiento y Cotizaciones</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1b2030;--mu:#5d6580;--pr:#2457e6;--pt:#fff;--bd:#e0e4ef;--ok:#1a9a5b;--wa:#1fa855;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1320;--card:#181d2e;--tx:#eef0f8;--mu:#9aa3c2;--pr:#6b8cff;--pt:#0f1320;--bd:#2a3150;--ok:#3ecf8e}}
+:root[data-theme="dark"]{--bg:#0f1320;--card:#181d2e;--tx:#eef0f8;--mu:#9aa3c2;--pr:#6b8cff;--pt:#0f1320;--bd:#2a3150;--ok:#3ecf8e}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.w{max-width:860px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0}
+.brand{font-weight:800;font-size:1.15rem}
+nav{display:flex;gap:4px;padding-bottom:10px;overflow-x:auto}
+nav button{flex:1;min-width:max-content;border:0;background:none;color:var(--mu);font:600 .95rem inherit;font-family:inherit;padding:10px 14px;border-radius:10px;cursor:pointer}
+nav button.on{background:var(--pr);color:var(--pt)}
+main{padding:20px 0 60px}
+h2{margin:0 0 4px;font-size:1.4rem}p.s{color:var(--mu);margin:0 0 16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:14px}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font:inherit;margin-top:6px}
+label{display:block;font-weight:600;font-size:.9rem;margin-top:12px}
+.btn{display:inline-block;border:0;background:var(--pr);color:var(--pt);font:700 1rem inherit;font-family:inherit;padding:12px 18px;border-radius:10px;cursor:pointer;text-decoration:none;margin-top:12px}
+.btn.wa{background:var(--wa);color:#fff}.btn.g{background:var(--bd);color:var(--tx)}
+.row{display:flex;gap:8px}.row>*{flex:1}.row .btn{flex:0 0 auto}
+.steps{list-style:none;margin:16px 0 0;padding:0}
+.steps li{display:flex;gap:12px;padding:8px 0;color:var(--mu);position:relative}
+.steps li i{width:22px;height:22px;border-radius:50%;border:2px solid var(--bd);flex:none;margin-top:2px}
+.steps li.done{color:var(--tx)}.steps li.done i{background:var(--ok);border-color:var(--ok)}
+.steps li.cur{color:var(--tx);font-weight:700}.steps li.cur i{border-color:var(--pr);background:var(--pr)}
+.badge{display:inline-block;background:var(--bd);border-radius:99px;padding:3px 10px;font-size:.85rem;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.grid .card{margin:0}.ic{font-size:2rem}
+.est{font-size:1.6rem;font-weight:800;color:var(--pr)}
+.msg{color:var(--mu)}.hide{display:none}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:8px 4px;border-bottom:1px solid var(--bd);text-align:left}
+.wrap{overflow-x:auto}
+</style></head><body>
+<header><div class="w"><div class="top"><div class="brand" id="brand"></div><a class="btn wa" id="wa" style="margin:0;padding:8px 14px" target="_blank" rel="noopener">WhatsApp</a></div>
+<nav id="nav"><button data-v="t" class="on">🔎 Mi equipo</button><button data-v="q">💲 Cotizar</button><button data-v="s">🧰 Servicios</button></nav></div></header>
+<main class="w"><div id="app"></div></main>
+<footer class="w" style="padding:10px 0 30px;text-align:center"><a href="#" id="adlink" style="color:var(--mu);font-size:.85rem;text-decoration:underline">Panel del taller</a></footer>
+<script id="state" type="application/json">{"cfg":{"name":"Teknovant","wa":"528448723632"},"stages":["Recibido","En cola","En diagnóstico","En reparación","Listo para entrega","Entregado"],"services":[{"id":"cel","name":"Reparación de celulares","ic":"📱","d":"Pantallas, baterías, puertos de carga, software.","items":[{"n":"Cambio de pantalla","min":800,"max":3500},{"n":"Cambio de batería","min":350,"max":900},{"n":"Puerto de carga","min":300,"max":700},{"n":"Diagnóstico","min":0,"max":150}]},{"id":"pc","name":"Reparación de cómputo","ic":"💻","d":"Laptops y PC: formateo, upgrades, limpieza, hardware.","items":[{"n":"Formateo e instalación","min":300,"max":600},{"n":"Limpieza y pasta térmica","min":350,"max":600},{"n":"Cambio de SSD / RAM (mano de obra)","min":250,"max":500},{"n":"Diagnóstico","min":0,"max":150}]},{"id":"ms","name":"Minisplit","ic":"❄️","d":"Venta, instalación, mantenimiento y reparación.","items":[{"n":"Instalación básica","min":1800,"max":3500},{"n":"Mantenimiento / limpieza","min":600,"max":1000},{"n":"Carga de gas","min":900,"max":1800},{"n":"Diagnóstico a domicilio","min":300,"max":500}]},{"id":"el","name":"Electricidad","ic":"⚡","d":"Instalaciones, contactos, centros de carga, fallas.","items":[{"n":"Contacto o apagador","min":250,"max":500},{"n":"Revisión de falla eléctrica","min":400,"max":900},{"n":"Instalación de centro de carga","min":1200,"max":3000}]},{"id":"cam","name":"Cámaras de seguridad","ic":"📹","d":"Venta, instalación y reparación de sistemas CCTV.","items":[{"n":"Instalación por cámara","min":600,"max":1200},{"n":"Configuración de DVR / app","min":400,"max":900},{"n":"Revisión de sistema","min":300,"max":600}]}],"orders":[{"f":"TL-001","d":"iPhone 12","s":"Cambio de pantalla","st":3,"n":"Pantalla llegó, en instalación.","u":"2026-09-23"},{"f":"TL-002","d":"Laptop HP","s":"Formateo","st":1,"n":"Esperando turno.","u":"2026-09-24"},{"f":"TL-003","d":"Samsung A54","s":"Batería","st":1,"n":"Esperando turno.","u":"2026-09-24"}]}</script>
+<script>
+const PIN="1234"; // cámbialo aquí por tu propio código de acceso al panel
+const ORIGINAL="<!DOCTYPE html>\n"+document.documentElement.outerHTML;
+const S=JSON.parse(document.getElementById('state').textContent);
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=n=>'$'+n.toLocaleString('es-MX');
+let view='t',owner=sessionStorage.getItem('tk_owner')=='1',dirty=false,q={sv:S.services[0].id,it:0,found:null};
+$('#brand').textContent='🛠️ '+S.cfg.name;
+const wa=(t)=>'https://wa.me/'+S.cfg.wa+'?text='+encodeURIComponent(t);
+$('#wa').href=wa('Hola, quisiera información.');
+
+function track(){
+  const cnt=S.orders.filter(o=>o.st==1).length;
+  app.innerHTML=`<h2>Estado de tu equipo</h2><p class="s">Escribe el folio que te dimos al recibir tu equipo.</p>
+  <div class="card"><div class="row"><input id="fol" placeholder="Ej. TL-001" autocomplete="off"><button class="btn" id="go" style="margin:6px 0 0">Buscar</button></div><div id="res"></div></div>
+  <p class="msg">Equipos en cola ahora: <b>${cnt}</b></p>${owner?admin():''}`;
+  $('#go').onclick=()=>{const f=$('#fol').value.trim().toUpperCase();const o=S.orders.find(x=>x.f.toUpperCase()==f);
+    $('#res').innerHTML=o?card(o):'<p class="msg">No encontramos ese folio. Revisa que esté bien escrito o escríbenos por WhatsApp.</p>'};
+  $('#fol').onkeydown=e=>{if(e.key=='Enter')$('#go').click()};
+  if(owner)bindAdmin();
+}
+function card(o){
+  const queue=S.orders.filter(x=>x.st==1),pos=queue.indexOf(o)+1;
+  return `<hr style="border:0;border-top:1px solid var(--bd);margin:16px 0"><b>${esc(o.d)}</b> · ${esc(o.s)} <span class="badge">${S.stages[o.st]}</span>
+  ${o.st==1?`<p>Turno en cola: <b>#${pos}</b> de ${queue.length}</p>`:''}
+  <ul class="steps">${S.stages.map((s,i)=>`<li class="${i<o.st?'done':i==o.st?'cur':''}"><i></i>${s}</li>`).join('')}</ul>
+  ${o.n?`<p class="msg">📝 ${esc(o.n)}</p>`:''}<p class="msg" style="font-size:.85rem">Actualizado: ${esc(o.u)}</p>`;
+}
+function quote(){
+  const sv=S.services.find(s=>s.id==q.sv),it=sv.items[q.it]||sv.items[0];
+  app.innerHTML=`<h2>Solicita tu cotización</h2><p class="s">Cuéntanos qué necesitas y te respondemos por WhatsApp con el precio, ya que puede variar según el equipo y la falla.</p>
+  <div class="card"><label>Servicio</label><select id="sv">${S.services.map(s=>`<option value="${s.id}" ${s.id==q.sv?'selected':''}>${s.ic} ${esc(s.name)}</option>`).join('')}</select>
+  <label>¿Qué necesitas?</label><select id="it">${sv.items.map((x,i)=>`<option value="${i}" ${x==it?'selected':''}>${esc(x.n)}</option>`).join('')}</select>
+  <label>Marca y modelo / detalles</label><input id="md" placeholder="Ej. iPhone 12, no enciende">
+  <label>Tu nombre</label><input id="nm" placeholder="Nombre">
+  <a class="btn wa" id="send" target="_blank" rel="noopener">Solicitar cotización por WhatsApp</a></div>`;
+  const upd=()=>{$('#send').href=wa(`Hola, soy ${$('#nm').value||'cliente'}. Quiero cotizar: ${sv.name} – ${it.n}. Detalles: ${$('#md').value||'—'}.`)};
+  $('#sv').onchange=e=>{q.sv=e.target.value;q.it=0;quote()};$('#it').onchange=e=>{q.it=+e.target.value;quote()};
+  ['md','nm'].forEach(i=>$('#'+i).oninput=upd);upd();
+}
+function services(){
+  app.innerHTML=`<h2>Nuestros servicios</h2><p class="s">Toca uno para cotizarlo.</p><div class="grid">${S.services.map(s=>`<div class="card"><div class="ic">${s.ic}</div><b>${esc(s.name)}</b><p class="msg">${esc(s.d)}</p><button class="btn g" data-s="${s.id}">Cotizar</button></div>`).join('')}</div>`;
+  app.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{q.sv=b.dataset.s;q.it=0;go('q')});
+}
+function admin(){
+  return `<div class="card"><h2 style="font-size:1.1rem">🔐 Panel del taller</h2>
+  ${dirty?`<p class="msg" style="background:#fff3cd22;border:1px solid var(--bd);border-radius:8px;padding:8px 10px">⚠️ Tienes cambios sin publicar. Descarga el archivo y súbelo a tu hosting para que tus clientes los vean.</p>`:''}
+  <div class="row"><input id="ad" placeholder="Equipo (ej. Laptop Dell)"><input id="as" placeholder="Servicio"></div>
+  <button class="btn" id="add">Registrar equipo</button>
+  <div class="wrap" style="margin-top:14px"><table><tr><th>Folio</th><th>Equipo</th><th>Estado</th><th>Nota para el cliente</th><th></th></tr>${S.orders.map((o,i)=>`<tr><td>${esc(o.f)}</td><td>${esc(o.d)}</td><td><select data-i="${i}" class="st">${S.stages.map((s,j)=>`<option value="${j}" ${j==o.st?'selected':''}>${s}</option>`).join('')}</select></td><td style="min-width:160px"><input data-i="${i}" class="nt" value="${esc(o.n)}" placeholder="Ej. esperando pieza"></td><td><button class="btn g" style="margin:0;padding:6px 10px" data-x="${i}">✕</button></td></tr>`).join('')}</table></div>
+  <button class="btn" id="dl" style="background:var(--ok)">⬇️ Descargar página actualizada</button>
+  <p class="msg" style="font-size:.85rem">Sube el archivo descargado a tu hosting (reemplazando el actual) para publicar estos cambios. Mientras no lo hagas, solo tú los ves en esta computadora.</p>
+  <button class="btn g" id="logout">Salir del panel</button></div>`;
+}
+function bindAdmin(){
+  $('#add').onclick=()=>{const d=$('#ad').value.trim();if(!d)return;
+    const n=Math.max(0,...S.orders.map(o=>+o.f.split('-')[1]))+1;
+    S.orders.push({f:'TL-'+String(n).padStart(3,'0'),d,s:$('#as').value.trim(),st:1,n:'',u:new Date().toISOString().slice(0,10)});mark();track()};
+  app.querySelectorAll('.st').forEach(s=>s.onchange=()=>{const o=S.orders[+s.dataset.i];o.st=+s.value;o.u=new Date().toISOString().slice(0,10);mark();track()});
+  app.querySelectorAll('.nt').forEach(inp=>inp.onchange=()=>{const o=S.orders[+inp.dataset.i];o.n=inp.value.trim();o.u=new Date().toISOString().slice(0,10);mark();track()});
+  app.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{S.orders.splice(+b.dataset.x,1);mark();track()});
+  $('#dl').onclick=download;
+  $('#logout').onclick=()=>{sessionStorage.removeItem('tk_owner');owner=false;track()};
+}
+function mark(){dirty=true}
+function download(){
+  const json=JSON.stringify(S).replace(/</g,'\\u003c');
+  const html=ORIGINAL.replace(/(<script id="state" type="application\/json">)[\s\S]*?(<\/script>)/,(m,a,b)=>a+json+b);
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='teknovant-web.html';a.click();
+  dirty=false;
+}
+function go(v){view=v;document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));({t:track,q:quote,s:services})[v]()}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.v));
+$('#adlink').onclick=(e)=>{e.preventDefault();
+  if(owner){owner=false;sessionStorage.removeItem('tk_owner');track();return}
+  const p=prompt('PIN del panel del taller:');
+  if(p===PIN){owner=true;sessionStorage.setItem('tk_owner','1');track()}
+  else if(p!==null)alert('PIN incorrecto.');
+};
+go('t');
+</script></body></html>
